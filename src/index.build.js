@@ -4,7 +4,7 @@ import headerJs from './header/header.js'
 import './header/header.less'
 import './footer/footer.less'
 
-export default {
+module.exports = {
   headerTpl,
   footerTpl,
   headerJs
