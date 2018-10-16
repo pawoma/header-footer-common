@@ -1,8 +1,10 @@
-import headerTemplate from './header/header.html';
-import Header from './header/header'
+import headerTpl from './header/header.html'
+import footerTpl from './footer/footer.html'
+import header from './header/header.js'
 import './header/header.less'
 import './footer/footer.less'
 
-const $headerWrap = document.getElementById('header-wrap');
-$headerWrap.innerHTML = headerTemplate;
-Header.init();
+
+document.querySelector('#header-wrap').innerHTML=headerTpl
+document.querySelector('#footer-wrap').innerHTML=footerTpl
+header.init()
