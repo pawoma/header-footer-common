@@ -1,12 +1,13 @@
 process.env.NODE_ENV = '"production"';
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+console.log(process.env.NODE_ENV);
 module.exports = {
   entry: './src/index.build.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename:'index.js'
+    filename: 'index.js'
   },
   module: {
     rules: [
@@ -14,9 +15,9 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'babel-loader?cacheCompression=false',
           options: {
-            presets: ['env']
+            presets: ['@babel/preset-env']
           }
         }
       },
@@ -31,7 +32,7 @@ module.exports = {
       }
     ]
   },
-  plugins:[
+  plugins: [
     new ExtractTextPlugin({
       filename: 'header-footer.css'
     })
